@@ -13,7 +13,7 @@ public class BookingService {
     private BookingRepository bookingRepository;
 
     public Booking addABooking(Booking aBooking) {
-        Booking newBooking = bookingRepository.save(aBooking);
-        return newBooking;
+        Booking newBook = bookingRepository.save(aBooking);
+        return newBook;
     }
 }
