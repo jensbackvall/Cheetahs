@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+<form method="POST" th:action="@{/createABooking}">
+    <ul>
+        <li>
+            <label>Fornavn </label>
+            <input type="text" name="FirstName" />
+        </li>
+        <li>
+            <label>Efternavn </label>
+            <input type="text" name="LastName" />
+        </li>
+        <li>
+            <label>Email </label>
+            <input type="text" name="Email" />
+        </li>
+        <li>
+            <label>Deltagere </label>
+            <input type="text" name="NumberOfAttendees" />
+        </li>
+        <li>
+            <label>Aktivitet </label>
+            <select name="Activity" >
+                <option value="Climbing">Climbing</option>
+                <option value="Gocart">Gocart</option>
+                <option value="Paintball">Paintball</option>
+            </select>
+        </li>
+        <li>
+            <input type="submit" value="Gem" />
+        </li>
+    </ul>
+
+
+</form>
+
+</body>
+</html>
