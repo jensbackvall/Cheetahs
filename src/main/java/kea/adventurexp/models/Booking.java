@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Booking {
@@ -17,6 +19,7 @@ public class Booking {
     private String Email;
     private int NumberOfAttendees;
     private String Activity;
+    private LocalDateTime Date;
 
     public long getId() {
         return id;
@@ -60,5 +63,15 @@ public class Booking {
 
     public void setActivity(String activity) {
         Activity = activity;
+    }
+
+    public void setDate(String date){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime localDate = LocalDateTime.parse(date, dtf);
+        this.Date = localDate;
+    }
+
+    public String getDate(){
+        return Date.toString();
     }
 }
