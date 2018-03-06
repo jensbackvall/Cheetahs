@@ -26,5 +26,9 @@ public class ActivityService {
         return activityRepository.findAll();
     }
 
+    public Activity getAnActivity(String name) {
+        return activityRepository.getOne(name);
+    }
+
 
 }
