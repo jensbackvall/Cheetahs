@@ -28,6 +28,8 @@ public class CreateABookingTest {
         aBooking.setLastName("Johnsen");
         aBooking.setEmail("JJ@gmail.com");
         aBooking.setActivity("GoKart");
+        aBooking.setDate("2018-07-03 12:00");
+
         aBooking.setNumberOfAttendees(5);
 
         //test saving to db
@@ -40,8 +42,13 @@ public class CreateABookingTest {
         assertEquals("JJ@gmail.com", newBooking.getEmail());
         assertEquals("GoKart", newBooking.getActivity());
         assertEquals(5, newBooking.getNumberOfAttendees());
+        assertEquals("2018-07-03T12:00", newBooking.getDate());
+    }
 
-
-
+    @Test
+    public void setDateTest(){
+        Booking booking = new Booking();
+        booking.setDate("2018-07-03 12:00");
+        assertEquals("2018-07-03T12:00", booking.getDate());
     }
 }
