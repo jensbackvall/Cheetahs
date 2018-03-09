@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<label>Firstname: </label>
+<tr th:text="${booking.getFirstName()}"></tr>
+<br>
+<label>Lastname: </label>
+<tr th:text="${booking.getLastName()}"></tr>
+<br>
+<label>Email: </label>
+<tr th:text="${booking.getEmail()}"></tr>
+<br>
+<label>Date: </label>
+<tr th:text="${booking.getDate()}"></tr>
+<br>
+<label>Number of attendees: </label>
+<tr th:text="${booking.getNumberOfAttendees()}"></tr>
+<br>
+<label>Activity: </label>
+<tr th:text="${booking.getActivity()}"></tr>
+<br>
+
+<form action="/editABooking" method="get">
+    <input type="hidden" th:value="${booking.getId()}" name = "bookingId"/>
+    <input type="submit" value="Edit"/>
+</form>
+
+</body>
+</html>

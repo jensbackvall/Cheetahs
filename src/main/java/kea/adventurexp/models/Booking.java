@@ -14,64 +14,64 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String FirstName;
-    private String LastName;
-    private String Email;
-    private int NumberOfAttendees;
-    private String Activity;
-    private LocalDateTime Date;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private int numberOfAttendees;
+    private String activity;
+    private LocalDateTime date;
 
     public long getId() {
         return id;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public int getNumberOfAttendees() {
-        return NumberOfAttendees;
+        return numberOfAttendees;
     }
 
     public void setNumberOfAttendees(int numberOfAttendees) {
-        NumberOfAttendees = numberOfAttendees;
+        this.numberOfAttendees = numberOfAttendees;
     }
 
     public String getActivity() {
-        return Activity;
+        return activity;
     }
 
     public void setActivity(String activity) {
-        Activity = activity;
+        this.activity = activity;
     }
 
     public void setDate(String date){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime localDate = LocalDateTime.parse(date, dtf);
-        this.Date = localDate;
+        this.date = localDate;
     }
 
     public String getDate(){
-        return Date.toString();
+        return date.toString().replace("T"," ");
     }
 }
