@@ -16,12 +16,25 @@
             <table>
                 <tr th:each="Activity : ${allActivities}">
                     <td th:text="${Activity.Name}">activity_name</td>
+                    <td>
+                        <a th:href="@{'/viewActivities/' + ${Activity.Name}}">Vis info</a>
+                    </td>
                 </tr>
             </table>
         </div>
 
         <div class="col-md-9" style="background: #a3f7f0">
-
+            <h3>Activity:</h3><span th:text="${theActivity.Name}" th:remove="tag" style="size: 5em">Click in menu to see info</span>
+            <h3>Description:</h3><span th:text="${theActivity.Description}" style="size: 5em">Click in menu to see info</span>
+            <h3>Limitations:</h3><span th:text="${theActivity.Limitations}" style="size: 5em">Click in menu to see info</span>
+            <h3>Minimum number of Participants:</h3><span th:text="${theActivity.MinParticipants}" style="size: 5em">Click in menu to see info</span>
+            <h3>Maximum number of Participants:</h3><span th:text="${theActivity.MaxParticipants}" style="size: 5em">Click in menu to see info</span>
+            <h3>Minimum Age:</h3><span th:text="${theActivity.MinAge}" style="size: 5em">Click in menu to see info</span>
+            <h3>Maximum Age:</h3><span th:text="${theActivity.MaxAge}" style="size: 5em">Click in menu to see info</span>
+            <h3>Minimum height:</h3><span th:text="${theActivity.MinHeight}" style="size: 5em">Click in menu to see info</span>
+            <h3>Maximum height:</h3><span th:text="${theActivity.MaxHeight}" style="size: 5em">Click in menu to see info</span>
+            <h3>Minimum weight:</h3><span th:text="${theActivity.MinWeight}" style="size: 5em">Click in menu to see info</span>
+            <h3>Maximum weight:</h3><span th:text="${theActivity.MaxWeight}" style="size: 5em">Click in menu to see info</span>
         </div>
 
     </div>
