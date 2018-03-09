@@ -27,10 +27,10 @@ public class ActivityController {
         model.addAttribute("theActivity", activityService.getAllActivities().get(0));
         return "viewActivities";
     }
-    @RequestMapping(value = "/viewActivities/{Name}", method = RequestMethod.GET)
-    public String showAllActivites(@PathVariable String Name, Model model){
+    @RequestMapping(value = "/viewActivities/{name}", method = RequestMethod.GET)
+    public String showAllActivites(@PathVariable String name, Model model){
         model.addAttribute("allActivities", activityService.getAllActivities());
-        Activity theActivity = activityService.getAnActivity(Name);
+        Activity theActivity = activityService.getAnActivity(name);
         model.addAttribute("theActivity", theActivity);
         return "viewActivities";
     }
