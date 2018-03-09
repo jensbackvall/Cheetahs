@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row" style="background: #e8f7c3">
+        <h1>VORES AWESOME AKTIVITETER, obs pizza ikke inkl.</h1>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3" style="background: #f7f353">
+            <table>
+                <tr th:each="Activity : ${allActivities}">
+                    <td th:text="${Activity.Name}">activity_name</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-9" style="background: #a3f7f0">
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
