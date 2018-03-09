@@ -51,4 +51,5 @@ public class CreateABookingTest {
         booking.setDate("2018-07-03 12:00");
         assertEquals("2018-07-03T12:00", booking.getDate());
     }
+
 }
