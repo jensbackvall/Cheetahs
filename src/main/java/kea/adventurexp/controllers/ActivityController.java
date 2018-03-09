@@ -27,6 +27,7 @@ public class ActivityController {
         model.addAttribute("theActivity", activityService.getAllActivities().get(0));
         return "viewActivities";
     }
+
     @RequestMapping(value = "/viewActivities/{name}", method = RequestMethod.GET)
     public String showAllActivites(@PathVariable String name, Model model){
         model.addAttribute("allActivities", activityService.getAllActivities());
@@ -34,4 +35,34 @@ public class ActivityController {
         model.addAttribute("theActivity", theActivity);
         return "viewActivities";
     }
+
+    @RequestMapping(value = "/admin/activities/createNewActivity", method = RequestMethod.GET)
+    public String createNewActivity(Model model){
+        model.addAttribute("allActivities", activityService.getAllActivities());
+        model.addAttribute("theActivity", activityService.getAllActivities().get(0));
+        return "/admin/activities/createNewActivity";
+    }
+
+    @RequestMapping(value = "/admin/activities/createNewActivity", method = RequestMethod.POST)
+    public String createNewActivity(Activity activity, Model model){
+        model.addAttribute("allActivities", activityService.getAllActivities());
+        model.addAttribute("succesMessage", "Du har oprettet en ny aktivitet.GODT GÅET! PIZZA!");
+        activityService.addActivity(activity);
+        return "/admin/activities/createNewActivity";
+    }
+
+    @RequestMapping(value = "/admin/activities/editExistingActivity/{name}", method = RequestMethod.GET)
+    public String editActivity(Activity activity, Model model){
+        model.addAttribute("allActivities", activityService.getAllActivities());
+        model.addAttribute("theActivity", activity);
+        return "/admin/activities/editExistingActivity";
+    }
+
+    @RequestMapping(value = "/admin/activities/editExistingActivity/{name}", method = RequestMethod.POST)
+    public String editActivity(Model model){
+        model.addAttribute("allActivities", activityService.getAllActivities());
+        model.addAttribute("succesMessage", "Du har redigeret aktiviteten.GODT GÅET! PIZZA!");
+        return "/admin/activities/editExistingActivity";
+    }
+
 }
