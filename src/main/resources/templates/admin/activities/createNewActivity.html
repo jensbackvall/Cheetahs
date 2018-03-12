@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row" style="background: #e8f7c3" th:cellpadding="5">
+        <h1>VORES AWESOME AKTIVITETER, obs admin må gerne få pizza!</h1>
+    </div>
+
+    <div class="row" th:cellpadding="5">
+
+        <div class="col-md-3" style="background: #f7f353">
+            <table>
+                <thead>
+                Vores Aktiviteter
+                </thead>
+                <tr th:each="Activity : ${allActivities}">
+                    <td th:text="${Activity.name}">activity_name</td>
+                    <td>
+                        <a th:href="@{'/admin/activities/editExistingActivity/' + ${Activity.name}}">Redigér</a>
+                    </td>
+                </tr>
+                <tr>
+                    <br>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="col-md-9" style="background: #a3f7f0" th:cellpadding="5">
+            <p th:utext="${succesMessage}"/>
+            <form method="POST" th:action="@{/admin/activities/createNewActivity}">
+                <h3>Activity:</h3><input type="text" name="name"/>
+                <h3>Description:</h3><input type="text" name="description"/>
+                <h3>Limitations:</h3><input type="text" name="limitations"/>
+                <h3>Minimum number of Participants:</h3><input type="number" name="minParticipants"/>
+                <h3>Maximum number of Participants:</h3><input type="number" name="maxParticipants"/>
+                <h3>Minimum Age:</h3><input type="number" name="minAge"/>
+                <h3>Maximum Age:</h3><input type="number" name="maxAge"/>
+                <h3>Minimum height:</h3><input type="number" name="minHeight"/>
+                <h3>Maximum height:</h3><input type="number" name="maxHeight"/>
+                <h3>Minimum weight:</h3><input type="number" name="minWeight"/>
+                <h3>Maximum weight:</h3><input type="number" name="maxWeight"/>
+                <input type="submit" value="Opret ny aktivitet" />
+            </form>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row" style="background: #e8f7c3">
+        <h1>VORES AWESOME AKTIVITETER, obs pizza ikke inkl.</h1>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3" style="background: #f7f353">
+            <table>
+                <tr th:each="Activity : ${allActivities}">
+                    <td th:text="${Activity.name}">activity_name</td>
+                    <td>
+                        <a th:href="@{'/viewActivities/' + ${Activity.name}}">Vis info</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-9" style="background: #a3f7f0">
+            <h3>Activity:</h3><span th:text="${theActivity.name}" th:remove="tag" style="size: 5em">Click in menu to see info</span>
+            <h3>Description:</h3><span th:text="${theActivity.description}" style="size: 5em">Click in menu to see info</span>
+            <h3>Limitations:</h3><span th:text="${theActivity.limitations}" style="size: 5em">Click in menu to see info</span>
+            <h3>Minimum number of Participants:</h3><span th:text="${theActivity.minParticipants}" style="size: 5em">Click in menu to see info</span>
+            <h3>Maximum number of Participants:</h3><span th:text="${theActivity.maxParticipants}" style="size: 5em">Click in menu to see info</span>
+            <h3>Minimum Age:</h3><span th:text="${theActivity.minAge}" style="size: 5em">Click in menu to see info</span>
+            <h3>Maximum Age:</h3><span th:text="${theActivity.maxAge}" style="size: 5em">Click in menu to see info</span>
+            <h3>Minimum height:</h3><span th:text="${theActivity.minHeight}" style="size: 5em">Click in menu to see info</span>
+            <h3>Maximum height:</h3><span th:text="${theActivity.maxHeight}" style="size: 5em">Click in menu to see info</span>
+            <h3>Minimum weight:</h3><span th:text="${theActivity.minWeight}" style="size: 5em">Click in menu to see info</span>
+            <h3>Maximum weight:</h3><span th:text="${theActivity.maxWeight}" style="size: 5em">Click in menu to see info</span>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

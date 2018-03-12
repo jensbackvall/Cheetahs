@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
 
-<form method="POST" th:action="@{/createABooking}">
+<form method="POST" th:action="@{/editABooking}">
+        <input type="hidden" name="id" th:value="${booking.getId()}"/>
     <ul>
         <li>
             <label>Fornavn </label>
-            <input type="text" name="FirstName" />
+            <input type="text" name="FirstName" th:value="${booking.getFirstName()}" />
         </li>
         <li>
             <label>Efternavn </label>
-            <input type="text" name="LastName" />
+            <input type="text" name="LastName" th:value="${booking.getLastName()}"/>
         </li>
         <li>
             <label>Email </label>
-            <input type="text" name="Email" />
+            <input type="text" name="Email" th:value="${booking.getEmail()}" />
         </li>
         <li>
             <label>Deltagere </label>
-            <input type="text" name="NumberOfAttendees" />
+            <input type="text" name="NumberOfAttendees" th:value="${booking.getNumberOfAttendees()}"/>
         </li>
         <li>
             <label>Tid</label>
-            <input type="text" name="Date" placeholder="Example: 2018-07-03 12:00"/>
+            <input type="text" name="Date" th:value="${booking.getDate()}"/>
         </li>
         <li>
             <label>Aktivitet </label>
-            <select name="Activity" >
+            <select name="Activity" th:value="${booking.getActivity()}">
                 <option value="Climbing">Climbing</option>
                 <option value="Gocart">Gocart</option>
                 <option value="Paintball">Paintball</option>
