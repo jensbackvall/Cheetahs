@@ -1,38 +1,74 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <title>create booking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<label>Firstname: </label>
-<tr th:text="${booking.getFirstName()}"></tr>
-<br>
-<label>Lastname: </label>
-<tr th:text="${booking.getLastName()}"></tr>
-<br>
-<label>Email: </label>
-<tr th:text="${booking.getEmail()}"></tr>
-<br>
-<label>Date: </label>
-<tr th:text="${booking.getDate()}"></tr>
-<br>
-<label>Number of attendees: </label>
-<tr th:text="${booking.getNumberOfAttendees()}"></tr>
-<br>
-<label>Activity: </label>
-<tr th:text="${booking.getActivity()}"></tr>
-<br>
 
-<form action="/editABooking" method="get">
-    <input type="hidden" th:value="${booking.getId()}" name = "bookingId"/>
-    <input type="submit" value="Edit"/>
-</form>
+<div class="container font_style">
 
-<form method="POST" th:action="@{/deleteABooking}">
-    <input type="hidden" name="id" th:value="${booking.getId()}"/>
-    <input type = "submit" value="Slet"/>
-</form>
+    <div class="row padding_box">
+        <div class="col-md-12 padding_box" style="background:#e8f7c3">
+            <h1>RESULTAT</h1>
+        </div>
+    </div>
 
+    <div class="row padding_box">
+        <div class="col-md-6 drop_cont">
+            <div class="dropdown">
+                <button class="dropbtn">AKTIVITETER</button>
+                <div class="dropdown-content">
+                    <a href="/viewActivities">Vores Aktiviteter</a>
+                    <a href="/admin/activities/createNewActivity">Opret/Redigér Aktiviter</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 drop_cont">
+            <div class="dropdown">
+                <button class="dropbtn">BOOKING</button>
+                <div class="dropdown-content">
+                    <a href="/searchForBooking">Søg Efter Booking</a>
+                    <a href="/createABooking">Opret Booking</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row padding_box">
+        <div class="col-md-12 padding_box" style="background: #a3f7f0">
+            <label>Firstname: </label>
+            <tr th:text="${booking.getFirstName()}"></tr>
+            <br>
+            <label>Lastname: </label>
+            <tr th:text="${booking.getLastName()}"></tr>
+            <br>
+            <label>Email: </label>
+            <tr th:text="${booking.getEmail()}"></tr>
+            <br>
+            <label>Date: </label>
+            <tr th:text="${booking.getDate()}"></tr>
+            <br>
+            <label>Number of attendees: </label>
+            <tr th:text="${booking.getNumberOfAttendees()}"></tr>
+            <br>
+            <label>Activity: </label>
+            <tr th:text="${booking.getActivity()}"></tr>
+            <br>
+
+            <form action="/editABooking" method="get">
+                <input type="hidden" th:value="${booking.getId()}" name="bookingId"/>
+                <input type="submit" value="Edit"/>
+            </form>
+
+            <form method="POST" th:action="@{/deleteABooking}">
+                <input type="hidden" name="id" th:value="${booking.getId()}"/>
+                <input type="submit" value="Slet"/>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
