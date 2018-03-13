@@ -8,6 +8,11 @@
     max-height: 100%;
 }
 
+.body {
+    background-image: url("/static/img/my-action-event.jpg");
+    width: 100%;
+}
+
 .font_style {
     font-family: "American Typewriter";
 }
