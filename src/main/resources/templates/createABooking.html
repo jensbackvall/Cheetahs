@@ -1,48 +1,83 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Title</title>
+    <title>create booking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-<form method="POST" th:action="@{/createABooking}">
-    <ul>
-        <li>
-            <label>Fornavn </label>
-            <input type="text" name="FirstName" />
-        </li>
-        <li>
-            <label>Efternavn </label>
-            <input type="text" name="LastName" />
-        </li>
-        <li>
-            <label>Email </label>
-            <input type="text" name="Email" />
-        </li>
-        <li>
-            <label>Deltagere </label>
-            <input type="text" name="NumberOfAttendees" />
-        </li>
-        <li>
-            <label>Tid</label>
-            <input type="text" name="Date" placeholder="Example: 2018-07-03 12:00"/>
-        </li>
-        <li>
-            <label>Aktivitet </label>
-            <select name="Activity">
-                <option value="">Vælg en aktivitet</option>
-                <option th:each="activity : ${listOfActivities}"
-                        th:value="${activity.getName()}"
-                        th:text="${activity.getName()}"> </option>
-            </select>
-        </li>
-        <li>
-            <input type="submit" value="Gem" />
-        </li>
-    </ul>
+<div class="container font_style">
+    <div class="row padding_box">
+        <div class="col-md-12 padding_box" style="background:#e8f7c3">
+            <h1>OPRET BOOKING</h1>
+        </div>
+    </div>
 
+    <div class="row padding_box">
+        <div class="col-md-6 drop_cont">
+            <div class="dropdown">
+                <button class="dropbtn">AKTIVITETER</button>
+                <div class="dropdown-content">
+                    <a href="/viewActivities">Vores Aktiviteter</a>
+                    <a href="/admin/activities/createNewActivity">Opret/Redigér Aktiviter</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 drop_cont">
+            <div class="dropdown">
+                <button class="dropbtn">BOOKING</button>
+                <div class="dropdown-content">
+                    <a href="/searchForBooking">Søg Efter Booking</a>
+                    <a href="/createABooking">Opret Booking</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-</form>
+    <div class="row padding_box">
+        <div class="col-md-12 padding_box" style="background: #a3f7f0">
+            <form method="POST" th:action="@{/createABooking}">
+                <ul>
+                    <li>
+                        <label>Fornavn </label>
+                        <input type="text" name="FirstName"/>
+                    </li>
+                    <li>
+                        <label>Efternavn </label>
+                        <input type="text" name="LastName"/>
+                    </li>
+                    <li>
+                        <label>Email </label>
+                        <input type="text" name="Email"/>
+                    </li>
+                    <li>
+                        <label>Deltagere </label>
+                        <input type="text" name="NumberOfAttendees"/>
+                    </li>
+                    <li>
+                        <label>Tid</label>
+                        <input type="text" name="Date" placeholder="Example: 2018-07-03 12:00"/>
+                    </li>
+                    <li>
+                        <label>Aktivitet </label>
+                        <select name="Activity">
+                            <option value="">Vælg en aktivitet</option>
+                            <option th:each="activity : ${listOfActivities}"
+                                    th:value="${activity.getName()}"
+                                    th:text="${activity.getName()}"></option>
+                        </select>
+                    </li>
+                    <li>
+                        <input type="submit" value="Gem"/>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>

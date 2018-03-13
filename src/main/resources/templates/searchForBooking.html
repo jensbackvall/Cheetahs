@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Search</title>
+    <title>create booking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+<body>
 
-<form action = "/search" method="post">
-    <label> Email </label>
-    <input type = "text" name="email" placeholder="Example@mail.com"/>
-    <input type = "submit"/>
-</form>
+<div class="container font_style">
+
+    <div class="row padding_box">
+        <div class="col-md-12 padding_box" style="background:#e8f7c3">
+            <h1>SØG EFTER BOOKING</h1>
+        </div>
+    </div>
+
+    <div class="row padding_box">
+        <div class="col-md-6 drop_cont">
+            <div class="dropdown">
+                <button class="dropbtn">AKTIVITETER</button>
+                <div class="dropdown-content">
+                    <a href="/viewActivities">Vores Aktiviteter</a>
+                    <a href="/admin/activities/createNewActivity">Opret/Redigér Aktiviter</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 drop_cont">
+            <div class="dropdown">
+                <button class="dropbtn">BOOKING</button>
+                <div class="dropdown-content">
+                    <a href="/searchForBooking">Søg Efter Booking</a>
+                    <a href="/createABooking">Opret Booking</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row padding_box">
+        <div class="col-md-12 padding_box" style="background: #a3f7f0">
+            <form action="/search" method="post">
+                <label> Email </label>
+                <input type="text" name="email" placeholder="Example@mail.com"/>
+                <input type="submit"/>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 </body>

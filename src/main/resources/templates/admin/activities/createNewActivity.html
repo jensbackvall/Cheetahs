@@ -2,14 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<div class="container">
+<div class="container font_style">
     <div class="row padding_box">
         <div class="col-md-12 padding_box" style="background:#e8f7c3">
-            <h1>VORES AWESOME AKTIVITETER</h1><br><h3>obs admin må gerne få pizza!</h3>
+            <h1>VORES AWESOME AKTIVITETER</h1><br>
+            <h3>obs admin må gerne få pizza!</h3>
+        </div>
+    </div>
+
+    <div class="row padding_box">
+        <div class="col-md-6 drop_cont">
+            <div class="dropdown">
+                <button class="dropbtn">AKTIVITETER</button>
+                <div class="dropdown-content">
+                    <a href="/viewActivities">Vores Aktiviteter</a>
+                    <a href="/admin/activities/createNewActivity">Opret/Redigér Aktiviter</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 drop_cont">
+            <div class="dropdown">
+                <button class="dropbtn">BOOKING</button>
+                <div class="dropdown-content">
+                    <a href="/searchForBooking">Søg Efter Booking</a>
+                    <a href="/createABooking">Opret Booking</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -47,7 +70,7 @@
                 <h3>Maximum height:</h3><input type="number" name="maxHeight"/>
                 <h3>Minimum weight:</h3><input type="number" name="minWeight"/>
                 <h3>Maximum weight:</h3><input type="number" name="maxWeight"/>
-                <input type="submit" value="Opret ny aktivitet" />
+                <input type="submit" value="Opret ny aktivitet"/>
             </form>
         </div>
 

@@ -14,12 +14,12 @@ public class SearchController {
     @Autowired
     BookingService bookingService;
 
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    @RequestMapping(value = "/searchForBooking", method = RequestMethod.GET)
     public String searchABooking(){
         return "searchForBooking";
     }
 
-    @RequestMapping(value="/search", method = RequestMethod.POST)
+    @RequestMapping(value="/searchForBooking", method = RequestMethod.POST)
     public ModelAndView returnABooking(Model model, String email){
 
         model.addAttribute("booking", bookingService.getABookingByEmail(email));

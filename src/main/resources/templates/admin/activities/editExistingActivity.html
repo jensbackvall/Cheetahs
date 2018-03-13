@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>edit activity</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<div class="container">
-    <div class="row" style="background: #e8f7c3">
-        <h1>VORES AWESOME AKTIVITETER, obs admin må gerne få pizza!</h1>
+<div class="container font_style">
+    <div class="row padding_box">
+        <div class="col-md-12 padding_box" style="background:#e8f7c3">
+            <h1>VORES AWESOME AKTIVITETER</h1><br>
+            <h3>obs admin må gerne få pizza!</h3>
+        </div>
     </div>
 
-    <div class="row">
+    <div class="row padding_box">
+        <div class="col-md-6 drop_cont">
+            <div class="dropdown">
+                <button class="dropbtn">AKTIVITETER</button>
+                <div class="dropdown-content">
+                    <a href="/viewActivities">Vores Aktiviteter</a>
+                    <a href="/admin/activities/createNewActivity">Opret/Redigér Aktiviter</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 drop_cont">
+            <div class="dropdown">
+                <button class="dropbtn">BOOKING</button>
+                <div class="dropdown-content">
+                    <a href="/searchForBooking">Søg Efter Booking</a>
+                    <a href="/createABooking">Opret Booking</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <div class="col-md-3" style="background: #f7f353">
+    <div class="row padding_box">
+
+        <div class="col-md-3 padding_box" style="background: #f7f353">
             <table>
                 <thead>
                 Vores Aktiviteter
@@ -35,21 +61,23 @@
 
         </div>
 
-        <div class="col-md-9" style="background: #a3f7f0">
+        <div class="col-md-9 padding_box" style="background: #a3f7f0">
             <p th:utext="${succesMessage}"/>
             <form method="POST" th:action="@{/admin/activities/editExistingActivity}">
                 <h3>Activity:</h3><input type="text" name="name" th:value="${theActivity.name}"/>
                 <h3>Description:</h3><input type="text" name="description" th:value="${theActivity.description}"/>
                 <h3>Limitations:</h3><input type="text" name="limitations" th:value="${theActivity.limitations}"/>
-                <h3>Minimum number of Participants:</h3><input type="number" name="minParticipants" th:value="${theActivity.minParticipants}"/>
-                <h3>Maximum number of Participants:</h3><input type="number" name="maxParticipants" th:value="${theActivity.maxParticipants}"/>
+                <h3>Minimum number of Participants:</h3><input type="number" name="minParticipants"
+                                                               th:value="${theActivity.minParticipants}"/>
+                <h3>Maximum number of Participants:</h3><input type="number" name="maxParticipants"
+                                                               th:value="${theActivity.maxParticipants}"/>
                 <h3>Minimum Age:</h3><input type="number" name="minAge" th:value="${theActivity.minAge}"/>
                 <h3>Maximum Age:</h3><input type="number" name="maxAge" th:value="${theActivity.maxAge}"/>
                 <h3>Minimum height:</h3><input type="number" name="minHeight" th:value="${theActivity.minHeight}"/>
                 <h3>Maximum height:</h3><input type="number" name="maxHeight" th:value="${theActivity.maxHeight}"/>
                 <h3>Minimum weight:</h3><input type="number" name="minWeight" th:value="${theActivity.minWeight}"/>
                 <h3>Maximum weight:</h3><input type="number" name="maxWeight" th:value="${theActivity.maxWeight}"/>
-                <input type="submit" value="Gem Ændringer" />
+                <input type="submit" value="Gem Ændringer"/>
             </form>
         </div>
 
