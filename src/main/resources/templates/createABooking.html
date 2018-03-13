@@ -29,10 +29,11 @@
         </li>
         <li>
             <label>Aktivitet </label>
-            <select name="Activity" >
-                <option value="Climbing">Climbing</option>
-                <option value="Gocart">Gocart</option>
-                <option value="Paintball">Paintball</option>
+            <select name="Activity">
+                <option value="">Vælg en aktivitet</option>
+                <option th:each="activity : ${listOfActivities}"
+                        th:value="${activity.getName()}"
+                        th:text="${activity.getName()}"> </option>
             </select>
         </li>
         <li>

@@ -57,6 +57,8 @@ public class BookingRepositoryTest {
         Booking isNull = bookingService.getABookingByEmail("test@test");
 
         assertNull(isNull);
+
+
     }
 
 
