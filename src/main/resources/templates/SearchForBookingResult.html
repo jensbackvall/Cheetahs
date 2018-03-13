@@ -29,5 +29,10 @@
     <input type="submit" value="Edit"/>
 </form>
 
+<form method="POST" th:action="@{/deleteABooking}">
+    <input type="hidden" name="id" th:value="${booking.getId()}"/>
+    <input type = "submit" value="Slet"/>
+</form>
+
 </body>
 </html>
