@@ -30,6 +30,8 @@ public class BookingService {
         return bookingRepository.getOne(id);
     }
 
-
+    public void deleteABooking(Booking booking){
+        bookingRepository.delete(booking);
+    }
 
 }
