@@ -2,7 +2,9 @@ package kea.adventurexp.services;
 
 
 import kea.adventurexp.database.repos.BookingRepository;
+import kea.adventurexp.database.repos.DeletedBookingRepository;
 import kea.adventurexp.models.Booking;
+import kea.adventurexp.models.DeletedBooking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,9 @@ import java.time.format.DateTimeFormatter;
 
 @Service
 public class BookingService {
+
+    @Autowired
+    private DeletedBookingRepository deletedBookingRepository;
 
     @Autowired
     private BookingRepository bookingRepository;
@@ -30,6 +35,17 @@ public class BookingService {
         return bookingRepository.getOne(id);
     }
 
+    public void deleteABooking(Booking booking){
 
+        DeletedBooking deletedBooking = new DeletedBooking();
+        deletedBooking.setActivity(booking.getActivity());
+        deletedBooking.setDate(booking.getDate());
+        deletedBooking.setEmail(booking.getEmail());
+        deletedBooking.setFirstName(booking.getFirstName());
+        deletedBooking.setLastName(booking.getLastName());
+        deletedBooking.setNumberOfAttendees(booking.getNumberOfAttendees());
+        deletedBookingRepository.save(deletedBooking);
+        bookingRepository.delete(booking);
+    }
 
 }

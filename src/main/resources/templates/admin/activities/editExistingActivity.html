@@ -46,7 +46,7 @@
                 <tr th:each="Activity : ${allActivities}">
                     <td th:text="${Activity.name}">activity_name</td>
                     <td>
-                        <a th:href="@{'/admin/activities/edit/' + ${Activity.name}}">Redigér</a>
+                        <a th:href="@{'/admin/activities/editExistingActivity/' + ${Activity.name}}">Redigér</a>
                     </td>
                 </tr>
                 <tr>
@@ -63,18 +63,18 @@
 
         <div class="col-md-9 padding_box" style="background: #a3f7f0">
             <p th:utext="${succesMessage}"/>
-            <form method="POST" th:action="@{/admin/activities/createNewActivity}">
-                <h3>Activity:</h3><input type="text" name="name" th:value="theActivity.name"/>
-                <h3>Description:</h3><input type="text" name="description" th:value="theActivity.description"/>
-                <h3>Limitations:</h3><input type="text" name="limitations" th:value="theActivity.limitations"/>
-                <h3>Minimum number of Participants:</h3><input type="number" name="minParticipants" th:value="theActivity.minParticipants"/>
-                <h3>Maximum number of Participants:</h3><input type="number" name="maxParticipants" th:value="theActivity.maxParticipants"/>
-                <h3>Minimum Age:</h3><input type="number" name="minAge" th:value="theActivity.minAge"/>
-                <h3>Maximum Age:</h3><input type="number" name="maxAge" th:value="theActivity.maxAge"/>
-                <h3>Minimum height:</h3><input type="number" name="minHeight" th:value="theActivity.minHeight"/>
-                <h3>Maximum height:</h3><input type="number" name="maxHeight" th:value="theActivity.maxHeight"/>
-                <h3>Minimum weight:</h3><input type="number" name="minWeight" th:value="theActivity.minWeight"/>
-                <h3>Maximum weight:</h3><input type="number" name="maxWeight" th:value="theActivity.maxWeight"/>
+            <form method="POST" th:action="@{/admin/activities/editExistingActivity}">
+                <h3>Activity:</h3><input type="text" name="name" th:value="${theActivity.name}"/>
+                <h3>Description:</h3><input type="text" name="description" th:value="${theActivity.description}"/>
+                <h3>Limitations:</h3><input type="text" name="limitations" th:value="${theActivity.limitations}"/>
+                <h3>Minimum number of Participants:</h3><input type="number" name="minParticipants" th:value="${theActivity.minParticipants}"/>
+                <h3>Maximum number of Participants:</h3><input type="number" name="maxParticipants" th:value="${theActivity.maxParticipants}"/>
+                <h3>Minimum Age:</h3><input type="number" name="minAge" th:value="${theActivity.minAge}"/>
+                <h3>Maximum Age:</h3><input type="number" name="maxAge" th:value="${theActivity.maxAge}"/>
+                <h3>Minimum height:</h3><input type="number" name="minHeight" th:value="${theActivity.minHeight}"/>
+                <h3>Maximum height:</h3><input type="number" name="maxHeight" th:value="${theActivity.maxHeight}"/>
+                <h3>Minimum weight:</h3><input type="number" name="minWeight" th:value="${theActivity.minWeight}"/>
+                <h3>Maximum weight:</h3><input type="number" name="maxWeight" th:value="${theActivity.maxWeight}"/>
                 <input type="submit" value="Gem Ændringer" />
             </form>
         </div>

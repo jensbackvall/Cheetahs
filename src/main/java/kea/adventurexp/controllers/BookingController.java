@@ -1,6 +1,7 @@
 package kea.adventurexp.controllers;
 
 import kea.adventurexp.models.Booking;
+import kea.adventurexp.services.ActivityService;
 import kea.adventurexp.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,16 +18,20 @@ import java.awt.print.Book;
 public class BookingController {
 
     @Autowired
+    private ActivityService activityService;
+
+    @Autowired
     private BookingService bookingService;
 
     @RequestMapping(value = "/createABooking", method = RequestMethod.GET)
-    public String createABooking(){
-        return "createABooking";
+    public ModelAndView createABooking(Model model){
+        model.addAttribute("listOfActivities", activityService.getAllActivities());
+        return new ModelAndView("createABooking", "model", model) ;
     }
 
     @RequestMapping(value = "/createABooking", method = RequestMethod.POST)
     public String createABooking(Booking booking){
-
+        System.out.println(booking.getFirstName());
         bookingService.addABooking(booking);
         return "createABooking";
     }
@@ -48,6 +53,13 @@ public class BookingController {
         updateBooking.setActivity(booking.getActivity());
         updateBooking.setNumberOfAttendees(booking.getNumberOfAttendees());
         bookingService.addABooking(updateBooking);
+        return "index";
+    }
+
+    @RequestMapping(value="/deleteABooking", method = RequestMethod.POST)
+    public String deleteABooking(@RequestParam("id") long id){
+        Booking booking = bookingService.getABookingById(id);
+        bookingService.deleteABooking(booking);
         return "index";
     }
 

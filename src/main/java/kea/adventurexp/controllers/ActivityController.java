@@ -52,17 +52,19 @@ public class ActivityController {
     }
 
     @RequestMapping(value = "/admin/activities/editExistingActivity/{name}", method = RequestMethod.GET)
-    public String editActivity(Activity activity, Model model){
+    public String editActivity(@PathVariable String name, Model model){
         model.addAttribute("allActivities", activityService.getAllActivities());
-        model.addAttribute("theActivity", activity);
+        Activity theActivity = activityService.getAnActivity(name);
+        model.addAttribute("theActivity", theActivity);
         return "/admin/activities/editExistingActivity";
     }
 
-    @RequestMapping(value = "/admin/activities/editExistingActivity/{name}", method = RequestMethod.POST)
-    public String editActivity(Model model){
+    @RequestMapping(value = "/admin/activities/editExistingActivity", method = RequestMethod.POST)
+    public String editActivity(Activity activity, Model model){
         model.addAttribute("allActivities", activityService.getAllActivities());
+        activityService.addActivity(activity);
         model.addAttribute("succesMessage", "Du har redigeret aktiviteten.GODT GÅET! PIZZA!");
-        return "/admin/activities/editExistingActivity";
+        return "redirect:/admin/activities/editExistingActivity/" + activity.getName();
     }
 
 }
