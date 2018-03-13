@@ -1,7 +1,5 @@
 package kea.adventurexp.models;
 
-import kea.adventurexp.services.ActivityService;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,103 +7,103 @@ import javax.persistence.Id;
 public class Activity {
 
     @Id
-    private String Name;
-    private String Description;
-    private String Limitations;
-    private int MinParticipants;
-    private int MaxParticipants;
-    private int MinAge;
-    private int MaxAge;
-    private int MinHeight;
-    private int MaxHeight;
-    private int MinWeight;
-    private int MaxWeight;
+    private String name;
+    private String description;
+    private String limitations;
+    private int minParticipants;
+    private int maxParticipants;
+    private int minAge;
+    private int maxAge;
+    private int minHeight;
+    private int maxHeight;
+    private int minWeight;
+    private int maxWeight;
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getLimitations() {
-        return Limitations;
+        return limitations;
     }
 
     public void setLimitations(String limitations) {
-        Limitations = limitations;
+        this.limitations = limitations;
     }
 
     public int getMinParticipants() {
-        return MinParticipants;
+        return minParticipants;
     }
 
     public void setMinParticipants(int minParticipants) {
-        MinParticipants = minParticipants;
+        this.minParticipants = minParticipants;
     }
 
     public int getMaxParticipants() {
-        return MaxParticipants;
+        return maxParticipants;
     }
 
     public void setMaxParticipants(int maxParticipants) {
-        MaxParticipants = maxParticipants;
+        this.maxParticipants = maxParticipants;
     }
 
     public int getMinAge() {
-        return MinAge;
+        return minAge;
     }
 
     public void setMinAge(int minAge) {
-        MinAge = minAge;
+        this.minAge = minAge;
     }
 
     public int getMaxAge() {
-        return MaxAge;
+        return maxAge;
     }
 
     public void setMaxAge(int maxAge) {
-        MaxAge = maxAge;
+        this.maxAge = maxAge;
     }
 
     public int getMinHeight() {
-        return MinHeight;
+        return minHeight;
     }
 
     public void setMinHeight(int minHeight) {
-        MinHeight = minHeight;
+        this.minHeight = minHeight;
     }
 
     public int getMaxHeight() {
-        return MaxHeight;
+        return maxHeight;
     }
 
     public void setMaxHeight(int maxHeight) {
-        MaxHeight = maxHeight;
+        this.maxHeight = maxHeight;
     }
 
     public int getMinWeight() {
-        return MinWeight;
+        return minWeight;
     }
 
     public void setMinWeight(int minWeight) {
-        MinWeight = minWeight;
+        this.minWeight = minWeight;
     }
 
     public int getMaxWeight() {
-        return MaxWeight;
+        return maxWeight;
     }
 
     public void setMaxWeight(int maxWeight) {
-        MaxWeight = maxWeight;
+        this.maxWeight = maxWeight;
     }
 }

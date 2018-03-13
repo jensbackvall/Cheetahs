@@ -30,5 +30,7 @@ public class ActivityService {
         return activityRepository.getOne(name);
     }
 
-
+    public void updateActivity(Activity activity) {
+        activityRepository.save(activity);
+    }
 }
