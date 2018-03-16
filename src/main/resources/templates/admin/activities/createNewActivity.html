@@ -57,6 +57,7 @@
         </div>
 
         <div class="col-md-9 padding_box" style="background: #a3f7f0">
+            <h2>Opret Ny Aktivitet</h2>
             <p th:utext="${succesMessage}"/>
             <form method="POST" th:action="@{/admin/activities/createNewActivity}">
                 <h3>Activity:</h3><input type="text" name="name"/>
