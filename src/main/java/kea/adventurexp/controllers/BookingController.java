@@ -60,7 +60,7 @@ public class BookingController {
     public String deleteABooking(@RequestParam("id") long id){
         Booking booking = bookingService.getABookingById(id);
         bookingService.deleteABooking(booking);
-        return "index";
+        return "searchForBooking";
     }
 
 }
