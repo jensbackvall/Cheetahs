@@ -28,16 +28,17 @@ public class BookingRepositoryTest {
     public void findByEmailTest(){
 
         Booking booking = new Booking();
-        booking.setFirstName("Emil");
+        booking.setFirstName("test");
         booking.setLastName("Hansen");
-        booking.setEmail("Hans@gmail.com");
+        booking.setEmail("testtest");
+        booking.setDate("03-07-2018 12:00");
 
         bookingService.addABooking(booking);
 
         long id = 1;
-        Booking foundBooking = bookingService.getABookingByEmail("Hans@gmail.com");
+        Booking foundBooking = bookingService.getABookingByEmail("testtest");
 
-        assertEquals("Hans@gmail.com" , foundBooking.getEmail());
+        assertEquals("testtest" , foundBooking.getEmail());
         bookingService.deleteABooking(foundBooking);
     }
 
@@ -45,16 +46,17 @@ public class BookingRepositoryTest {
     public void deleteABookingTest(){
         Booking booking = new Booking();
         booking.setFirstName("Emil");
-        booking.setEmail("test@test");
+        booking.setEmail("testtesttest");
+        booking.setDate("03-07-2018 12:00");
 
         bookingService.addABooking(booking);
 
-        Booking retrievedBooking = bookingService.getABookingByEmail("test@test");
+        Booking retrievedBooking = bookingService.getABookingByEmail("testtesttest");
         assertEquals("Emil", retrievedBooking.getFirstName());
 
         bookingService.deleteABooking(retrievedBooking);
 
-        Booking isNull = bookingService.getABookingByEmail("test@test");
+        Booking isNull = bookingService.getABookingByEmail("testtesttest");
 
         assertNull(isNull);
 
