@@ -66,12 +66,14 @@ public class Booking {
     }
 
     public void setDate(String date){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         LocalDateTime localDate = LocalDateTime.parse(date, dtf);
         this.date = localDate;
     }
 
     public String getDate(){
-        return date.toString().replace("T"," ");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        return date.format(dtf);
+
     }
 }
